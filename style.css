@@ -9,6 +9,10 @@ body {
   background-color: #121212;
 }
 
+::-webkit-scrollbar {
+  width: 0;
+}
+
 h1 {
   color: #ffb7ce;
   font-family: "ABeeZee", sans-serif;
@@ -95,6 +99,126 @@ h1 {
   font-size: 60px;
 }
 
+.page2 {
+  height: 100vh;
+  color: #fff;
+  padding: 2em;
+}
+
+.page2::before {
+  content: " ";
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.page2 h1 {
+  margin: 0.3em;
+  font-size: 3em;
+}
+
+.page2 h2 {
+  margin-bottom: 0.5em;
+}
+
+.title {
+  text-align: center;
+  padding-top: 10vh;
+}
+
+.title p {
+  color: gray;
+  font-size: 1.3em;
+  letter-spacing: 2px;
+}
+
+#benj {
+  border-bottom: #888 2px dotted;
+  padding-bottom: 10vh;
+}
+
+.timeline {
+  margin: 0 auto;
+  max-width: 34.15em;
+}
+
+.checkpoint {
+  max-width: 34em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  position: relative;
+}
+
+.checkpoint div {
+  border: 2px solid #888;
+  border-radius: 1em;
+  padding: 1.5em;
+}
+
+.checkpoint p {
+  line-height: 27px;
+  color: #ccc;
+}
+
+.checkpoint:nth-child(odd) {
+  border-left: 3px solid #888;
+  padding-left: 3em;
+  transform: translateX(17em);
+}
+
+.checkpoint:nth-child(even) {
+  border-right: 3px solid #888;
+  padding-right: 3em;
+  transform: translateX(-17em);
+}
+
+.checkpoint:nth-child(odd)::before,
+.checkpoint:nth-child(even)::before {
+  content: " ";
+  background: #888;
+  width: 3em;
+  height: 3px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.checkpoint:nth-child(odd)::before {
+  left: 0;
+}
+
+.checkpoint:nth-child(even)::before {
+  right: 0;
+}
+
+.checkpoint:nth-child(odd) div::before,
+.checkpoint:nth-child(even) div::before {
+  content: " ";
+  background: #fff;
+  box-shadow: 0 0 0.5em #0d71fc;
+  width: 0.8em;
+  height: 0.8em;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+}
+
+.checkpoint:nth-child(odd) div::before {
+  left: -0.5em;
+}
+
+.checkpoint:nth-child(even) div::before {
+  right: -0.5em;
+}
+
+.page3 {
+  height: 100vh;
+}
+
 @media screen and (max-width: 600px) {
   #pfp {
     height: 300px;
@@ -115,7 +239,7 @@ h1 {
   }
 
   .right {
-    height: 40vh;
+    height: 20vh;
     width: 100vw;
   }
 
@@ -129,5 +253,37 @@ h1 {
 
   #cursor {
     font-size: 40px;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .timeline {
+    width: 80vw;
+    margin: 2em auto;
+  }
+
+  #title {
+    padding-top: 0;
+  }
+  .timeline .checkpoint {
+    width: 100%;
+    transform: none;
+    padding-left: 0;
+    padding-right: 0;
+    border: none;
+  }
+
+  .timeline .checkpoint::before {
+    width: 3px;
+    height: 4em;
+    top: -2em;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .timeline .checkpoint div::before {
+    top: -0.5em;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
